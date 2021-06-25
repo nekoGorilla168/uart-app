@@ -13,22 +13,24 @@ class CreateCodeMasterTable extends Migration
      */
     public function up()
     {
-        // Schema::create('code_master', function (Blueprint $table) {
-        //     // コード値
-        //     $table->string('code', '4');
-        //     // コード区分
-        //     $table->string('code_kbn', '30');
-        //     // コード名称
-        //     $table->string('code_name', '60');
-        //     // 属性1
-        //     $table->string('attribute_1', '60');
-        //     // 属性2
-        //     $table->string('attribute_2', '60');
-        //     // 登録/更新日時
-        //     $table->timestamps();
-        //     // 複合PK
-        //     $table->primary(['code', 'code_kbn']);
-        // });
+        Schema::create('code_master', function (Blueprint $table) {
+            // コード番号
+            $table->string('code_no', '3');
+            // コード区分
+            $table->string('code_kbn', '30');
+            // コード値
+            $table->string('code', '3');
+            // コード名称
+            $table->string('code_name', '60');
+            // 属性1
+            $table->string('attribute_1', '60');
+            // 属性2
+            $table->string('attribute_2', '60');
+            // 登録/更新日時
+            $table->timestamps();
+            // 複合PK
+            $table->primary(['code_no', 'code_kbn']);
+        });
     }
 
     /**
