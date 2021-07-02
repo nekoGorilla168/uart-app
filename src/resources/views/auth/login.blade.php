@@ -1,8 +1,70 @@
-<x-guest-layout>
+<x-login-register-layout title="ログイン">
+    <div class="container">
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <a href="">
+                <x-application-logo />
+            </a>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="card w-50">
+                <div class="card-body">
+                    <form action="{{ route('login') }}" method="post">
+                        @csrf
+                        <!-- Eメールアドレス -->
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-3 form-label">Eメールアドレス</label>
+                            <div class="col-md-9">
+                                <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
+                            </div>
+                        </div>
+                        <!-- パスワード -->
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-3 form-label">パスワード</label>
+                            <div class="col-md-9">
+                                <x-input id="password" class="form-control"
+                                            type="password"
+                                            name="password"
+                                            required autocomplete="new-password" />
+                            </div>
+                        </div>
+                        <!-- パスワード確認用 -->
+                        <div class="row mb-3">
+                            <label for="password_confirmation" class="col-md-3 form-label">パスワード（確認）</label>
+                            <div class="col-md-9">
+                                <x-input id="password_confirmation" class="form-control"
+                                            type="password"
+                                            name="password_confirmation" required />
+                            </div>
+                        </div>
+                        <!-- パスワードを記憶する -->
+                        <div class="form-check row mb-3 pe-0 me-0">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="remember_me">
+                                <label for="remember_me" class="form-check-label" style="width: 8rem">パスワードを記憶する</label>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div class="me-auto">
+                                <a href="{{ route('password.request') }}" class="btn btn-light">パスワードをお忘れの方はこちら</a>
+                            </div>
+                            <div class="ms-auto">
+                                <button type="submit" class="btn btn-dark">ログイン</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-login-register-layout>
+
+
+{{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo />
             </a>
         </x-slot>
 
@@ -53,4 +115,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-guest-layout> --}}
