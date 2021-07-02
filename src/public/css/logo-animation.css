@@ -1,0 +1,14 @@
+@keyframes rotate-logo {
+    0%{transform: rotate(0);}
+    60%{opacity: 0;}
+    75%{opacity: 0.5;}
+    90%{opacity: 1;}
+    100%{transform: rotate(360deg);}
+}
+
+.uart-logo {
+    animation-name: rotate-logo;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
