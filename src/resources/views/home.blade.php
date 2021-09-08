@@ -17,7 +17,7 @@
 
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-primary">投稿テスト</a>
+            <a href="{{ Route('post') }}" class="btn btn-primary">投稿テスト</a>
         </div>
     </div>
     <!-- 検索 -->
